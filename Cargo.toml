@@ -1,6 +1,6 @@
 [package]
 name = "demurgos_headers"
-version = "0.3.8" # don't forget to update html_root_url
+version = "0.4.0" # don't forget to update html_root_url
 description = "Temporary fork of typed HTTP headers, with Link headers support"
 license = "MIT"
 readme = "README.md"
@@ -9,23 +9,21 @@ repository = "https://github.com/hyperium/headers"
 authors = ["Sean McArthur <sean@seanmonstar.com>"]
 keywords = ["http", "headers", "hyper", "hyperium"]
 categories = ["web-programming"]
+edition = "2018"
+rust-version = "1.56"
 
 [workspace]
-members = [
-    "./",
-    "headers-core",
-]
+members = ["headers-core"]
 
 [dependencies]
-http = "0.2.0"
-headers-core = { version = "0.2", path = "./headers-core" }
-base64 = "0.13"
-bitflags = "1.0"
+http = "1.0.0"
+headers-core = { version = "0.3", path = "./headers-core" }
+base64 = "0.22"
 bytes = "1"
+language-tags = "0.3.2"
 mime = "0.3.14"
 sha1 = "0.10"
 httpdate = "1"
-language-tags = "0.3.2"
 
 [features]
 nightly = []

@@ -1,14 +1,12 @@
 #![deny(missing_docs)]
 #![deny(missing_debug_implementations)]
 #![cfg_attr(test, deny(warnings))]
-#![doc(html_root_url = "https://docs.rs/headers-core/0.2.0")]
+#![doc(html_root_url = "https://docs.rs/headers-core/0.3.0")]
 
 //! # headers-core
 //!
 //! This is the core crate of the typed HTTP headers system, providing only
 //! the relevant traits. All actual header implementations are in other crates.
-
-extern crate http;
 
 pub use http::header::{self, HeaderName, HeaderValue};
 
@@ -23,13 +21,14 @@ pub trait Header {
     /// The name of this header.
     fn name() -> &'static HeaderName;
 
-    /// Decode this type from an iterator of `HeaderValue`s.
+    /// Decode this type from an iterator of [`HeaderValue`]s.
     fn decode<'i, I>(values: &mut I) -> Result<Self, Error>
     where
         Self: Sized,
         I: Iterator<Item = &'i HeaderValue>;
 
-    /// Encode this type to a `HeaderMap`.
+    /// Encode this type to a [`HeaderValue`], and add it to a container
+    /// which has [`HeaderValue`] type as each element.
     ///
     /// This function should be infallible. Any errors converting to a
     /// `HeaderValue` should have been caught when parsing or constructing

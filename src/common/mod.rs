@@ -165,7 +165,7 @@ mod if_range;
 mod if_unmodified_since;
 //mod last_event_id;
 mod last_modified;
-//mod link;
+pub mod link;
 mod location;
 mod origin;
 mod pragma;

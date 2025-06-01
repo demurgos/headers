@@ -1,6 +1,6 @@
 [package]
 name = "demurgos_headers"
-version = "0.4.0" # don't forget to update html_root_url
+version = "0.4.1" # don't forget to update html_root_url
 description = "Temporary fork of typed HTTP headers, with Link headers support"
 license = "MIT"
 readme = "README.md"
